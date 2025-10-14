@@ -1,0 +1,21 @@
+{
+  "id": "a1b2c3d4",
+  "name": "Alice Smith",
+  "age": 32,
+  "isActive": true,
+  "roles": [
+    "user",
+    "editor"
+  ],
+  "contact": {
+    "email": "alice.smith@example.com",
+    "phone": "555-123-4567"
+  },
+  "preferences": {
+    "theme": "dark",
+    "notifications": {
+      "email": true,
+      "sms": false
+    }
+  }
+}
