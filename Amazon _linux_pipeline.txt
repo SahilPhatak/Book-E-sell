@@ -1,0 +1,41 @@
+pipeline {
+    agent any
+    stages {
+        stage('install pkgs') {
+            steps {
+                sh '''
+                echo "Installing Apache Web Server"
+                sudo yum update -y
+                sudo yum install httpd -y
+                '''
+            }
+        }
+
+        stage('configure appln') {
+            steps {
+                sh '''
+                echo "Configuring and starting Apache"
+                sudo systemctl start httpd
+                sudo systemctl enable httpd
+                '''
+            }
+        }
+
+        stage('web-page') {
+            steps {
+                sh '''
+                echo "Deploying web page files"
+                sudo cp -r /home/ec2-user/2095_level/* /var/www/html/
+                '''
+            }
+        }
+
+        stage('Deployment') {
+            steps {
+                sh '''
+                echo "Deployment completed successfully!"
+                '''
+            }
+        }
+    }
+}
