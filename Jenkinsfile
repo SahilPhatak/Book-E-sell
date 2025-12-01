@@ -28,6 +28,7 @@ pipeline {
                 echo "Copying webpage files"
                 sh '''
                     sudo cp -r /home/ubuntu/2095_level/* /var/www/html/
+                    sudo systemctl restart nginx
                 '''
             }
         }
