@@ -2,19 +2,29 @@ pipeline {
     agent any
 
     stages {
-        stage('Build-user') {
+        stage('install pkgs') {
             steps {
-                echo "This is build stage"
+                echo "Installing nginx application"
+                apt-get install nginx -y
             }
         }
-        stage('Test-user') {
+        stage('configure appln') {
             steps {
                 echo "This is Test stage"
+                systemctl start nginx
+                systemctl enable nginx
             }
         }
-        stage('Deploy') {
+        stage('web-page') {
             steps {
-                echo "This is Deploy stage"
+                echo "This is webpage stage"
+                sudo cp /home/ubuntu/2095_level /var/www/html
+            }
+        }
+        stage('deployment') {
+            steps {
+                echo "This is Deployment stage"
+                sudo cp. /var/www/html
             }
         }
 
