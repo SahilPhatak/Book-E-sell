@@ -3,16 +3,20 @@ pipeline {
 
     stages {
         stage('install pkgs') {
-            steps {
+            steps { 
+                 sh '''
                 echo "Installing nginx application"
                 sudo apt-get install nginx -y
+            '''
             }
         }
         stage('configure appln') {
             steps {
+                 sh '''
                 echo "This is Test stage"
                 systemctl start nginx
                 systemctl enable nginx
+            '''
             }
         }
         stage('web-page') {
@@ -24,8 +28,6 @@ pipeline {
         stage('deployment') {
             steps {
                 echo "This is Deployment stage"
-                sudo cp. /var/www/html
-            }
         }
 
     }
