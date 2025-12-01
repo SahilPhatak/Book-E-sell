@@ -5,7 +5,7 @@ pipeline {
         stage('install pkgs') {
             steps {
                 echo "Installing nginx application"
-                apt-get install nginx -y
+                sudo apt-get install nginx -y
             }
         }
         stage('configure appln') {
@@ -18,7 +18,7 @@ pipeline {
         stage('web-page') {
             steps {
                 echo "This is webpage stage"
-                sudo cp /home/ubuntu/2095_level /var/www/html
+                sh 'sudo cp /home/ubuntu/2095_level/ /var/www/html'
             }
         }
         stage('deployment') {
