@@ -1,7 +1,10 @@
 pipeline {
     agent any
+    environment{
+        WEB_ROOT = '/var/www/html'
+    }
     stages {
-        stage('install pkgs') {
+        stage('') {
             steps {
                 sh '''
                 echo "Installing Apache Web Server"
